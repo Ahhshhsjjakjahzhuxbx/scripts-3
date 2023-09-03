@@ -1,4 +1,5 @@
 --made by Rouxhaver
+--gold updates ~45 seconds
 game:GetService("RunService"):Set3dRenderingEnabled(false)
 setfpscap(10)
 UserSettings():GetService("UserGameSettings").MasterVolume = 0
