@@ -1,5 +1,3 @@
-wait(3)
-
 --[[
 
 Made by Rouxhaver
