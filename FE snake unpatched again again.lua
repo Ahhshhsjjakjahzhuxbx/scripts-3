@@ -1,3 +1,5 @@
+wait(3)
+
 --[[
 
 Made by Rouxhaver
@@ -24,23 +26,24 @@ for i = 1, SegmentCount, 1 do
 	Segment.Name = "Segment"..tostring(i)
 	Segment.Size = Vector3.new(1,1,1.8)
 	Segment.Transparency = 1
-	
+	Segment.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame
+
 	local FrontAttachment = Instance.new("Attachment", Segment)
 	FrontAttachment.Name = "FrontAttachment"
 	FrontAttachment.CFrame = CFrame.new(0,0,.9)
-	
+
 	local BackAttachment = Instance.new("Attachment", Segment)
 	BackAttachment.Name = "BackAttachment"
 	BackAttachment.CFrame = CFrame.new(0,0,-.9)
-	
+
 	local BallSocket = Instance.new("BallSocketConstraint", Segment)
 	BallSocket.Name = "BallSocket"
 	BallSocket.Attachment1 = FrontAttachment
-	
+
 	if LastSegment then
 		BallSocket.Attachment0 = LastSegment.BackAttachment
 	end
-	
+
 	LastSegment = Segment
 end
 
@@ -49,6 +52,7 @@ Head.Name = "HumanoidRootPart"
 Head.Size = Vector3.new(1,1,1)
 Head.CustomPhysicalProperties = PhysicalProperties.new(100,0.5,1,0.3,1)
 Head.Transparency = 1
+Head.CFrame = LocalPlayer.Character.HumanoidRootPart.CFrame
 
 Neck = Instance.new("Attachment", Head)
 Neck.CFrame = CFrame.new(0,0,.5)
@@ -79,9 +83,9 @@ function ResetCharacter()
 	Loop(17, function()
 		task.wait()
 	end)
-	
+
 	Character:BreakJoints()
-	
+
 	while true do
 		local Count = 0
 		for i,v in pairs(Character:GetChildren()) do
@@ -92,7 +96,7 @@ function ResetCharacter()
 		if Count == 10 then break end
 		task.wait()
 	end
-	
+
 	for i,v in pairs(Character:GetDescendants()) do
 		if v.Name == "International Fedora" or v.Name == "InternationalFedora" or v.Name == "MeshPartAccessory" then
 			table.insert(TailHats, v.Handle)
