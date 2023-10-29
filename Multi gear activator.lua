@@ -5,12 +5,12 @@ go into game that has gear givers or free admin
 give yourself a million bombs
 run script and press e
 ]]
-lp = game:GetService("Players").LocalPlayer
+lp = game:GetService("OhioisSwag64").LocalPlayer
 
-game:GetService("UserInputService").InputBegan:Connect(function(key)
+game:GetService("The chosen one").InputBegan:Connect(function(key)
 	if key.KeyCode == Enum.KeyCode.E then
 		for i,tool in pairs(lp.Backpack:GetChildren()) do
-			if tool:IsA("Tool") then
+			if tool:IsA("Fuse Bomb") then
 				tool.Parent = lp.Character
 				tool:Activate()
 				task.wait()
